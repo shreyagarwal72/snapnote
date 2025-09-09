@@ -1,0 +1,276 @@
+:root {
+  --snap-accent: #1372f8;
+  --snap-accent2: #40c8e0;
+  --snap-bg-gradient: linear-gradient(111deg, #e4f3ff 0%, #f4eaff 90%);
+}
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  overscroll-behavior-y: contain;
+  background: var(--snap-bg-gradient);
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+  color: #163251;
+  margin: 0;
+  padding: 0;
+}
+
+.snapnote-header {
+  text-align: center;
+  padding: 30px 0 8px 0;
+  animation: fadeDown .8s cubic-bezier(.6,0,.45,1);
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--snap-accent);
+  margin: 0;
+  letter-spacing: 0.01em;
+  animation: popIn .7s cubic-bezier(.5,0,.3,1);
+}
+.subtitle {
+  margin: 0.18em 0 0.5em 0;
+  color: #6495d4;
+  font-size: 1.04rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.snapnote-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section[aria-label] {
+  background: #fff;
+  border-radius: 0.8rem;
+  max-width: 410px;
+  width: 99vw;
+  padding: 10px 1vw 10px 1vw;
+  margin: 8vw auto 5px auto;
+  box-shadow: none;
+  transition: box-shadow 0.23s;
+  animation: slideFadeIn .5s;
+}
+
+.ql-container.ql-snow {
+  border-radius: 0 0 6px 6px !important;
+  border-width: 1px !important;
+  border-color: #e6edfa !important;
+  box-shadow: none !important;
+  margin-bottom: 0;
+}
+.ql-toolbar.ql-snow {
+  border-radius: 6px 6px 0 0 !important;
+  border-width: 1px !important;
+  border-color: #e6edfa !important;
+  background: #f7fafb !important;
+  box-shadow: none !important;
+}
+.ql-tooltip,
+.ql-handle,
+.ql-resizer,
+.ql-floating-controls,
+.ql-image {
+  display: none !important;
+}
+
+#toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #f7fafb;
+  border-radius: 7px 7px 0 0;
+  padding: 0 1px 2px 1px;
+  font-size: 0.95rem;
+  border: none;
+  box-shadow: none;
+}
+.toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-items: center;
+}
+.ql-toolbar button,
+.ql-toolbar select {
+  min-width: 36px;
+  min-height: 36px;
+  font-size: 1.07em;
+  padding: 0 5px;
+  border-radius: 4px !important;
+  margin: 0 1px;
+  background: #f7fafb;
+  border: 1px solid #e7ebf6;
+  transition: background 0.12s, border 0.14s;
+}
+.ql-toolbar button:focus, 
+.ql-toolbar button:hover,
+.ql-toolbar select:focus {
+  outline: 1.5px solid #1372f8 !important;
+  background: #eaf3ff !important;
+  border-color: #7abaff !important;
+}
+.ql-toolbar .ql-picker-label {
+  color: inherit !important;
+}
+.ql-toolbar .ql-picker {
+  color: #163251 !important;
+}
+
+/* Large writing area */
+#editor-container {
+  background: #fcfdff;
+  border-radius: 0 0 6px 6px;
+  min-height: 470px;
+  font-size: 1.12rem;
+  border: none;
+  outline: none;
+  margin-bottom: 8px;
+  box-shadow: none;
+  line-height: 1.68;
+  resize: vertical;
+  overflow: auto;
+}
+
+.bottom-bar {
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.word-count { 
+  margin: 0 9px 0 0; 
+  color: #7ea0c2; 
+  font-size: 0.95em; 
+}
+.actions {
+  display: flex;
+  gap: 7px;
+}
+.actions button {
+  background: linear-gradient(90deg, var(--snap-accent) 0%, var(--snap-accent2) 97%);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: .98em;
+  font-weight: 600;
+  box-shadow: 0 1px 6px #1372f809;
+  cursor: pointer;
+  transition: background 0.13s, transform 0.12s;
+}
+.actions button:focus,
+.actions button:active {
+  background: linear-gradient(105deg, #248dfc 8%, #13c0fc 98%);
+  transform: scale(0.98);
+}
+
+.bottom-info-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 10px 0 0 0;
+  font-size: 1em;
+}
+.bottom-info-links a {
+  color: #1372f8;
+  text-decoration: underline dotted;
+  background: none;
+  font-weight: 500;
+  border: none;
+  padding: 3px 4px;
+  border-radius: 4px;
+  transition: color .14s;
+}
+.bottom-info-links a:hover, .bottom-info-links a:focus {
+  color: #235cca;
+  text-decoration: underline;
+}
+
+.snapnote-footer {
+  text-align: center;
+  color: #99afd6;
+  padding: 14px 1vw 6px 1vw;
+  font-size: .97em;
+  letter-spacing: .01em;
+}
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Responsive, full-app fill */
+@media (max-width: 600px) {
+  .snapnote-header { padding: 16px 0 4px 0;}
+  h1 { font-size: 1.1rem;}
+  .subtitle { font-size: .89rem;}
+  section[aria-label] { padding: 5vw 1vw 5vw 1vw; margin-top:5vw; max-width:99vw;}
+  #editor-container { min-height: 220px;}
+  .actions button { font-size: .97em; padding:7px 7vw;}
+  .toolbar-row { gap: 1px; }
+  #toolbar { font-size: .93em;}
+  .bottom-info-links { gap: 12px; font-size: .98em;}
+}
+
+/* PWA/Dark mode: Quill bar fixes & brighter input box */
+@media (prefers-color-scheme: dark) {
+  body, html { background: #202b39; color: #eaf6fd; }
+  .snapnote-header { color: #8cb2eb;}
+  section[aria-label] { background: #262f41;}
+  .ql-toolbar.ql-snow, #toolbar {
+    background: #181d28 !important;
+    color: #eaf6fd !important;
+    border-color: #415175 !important;
+  }
+  .ql-toolbar.ql-snow .ql-picker-label,
+  .ql-toolbar.ql-snow .ql-picker {
+    color: #eaf6fd !important;
+    fill: #eaf6fd !important;
+  }
+  .ql-toolbar.ql-snow .ql-stroke {
+    stroke: #eaf6fd !important;
+  }
+  .ql-toolbar.ql-snow .ql-fill {
+    fill: #eaf6fd !important;
+  }
+  .ql-toolbar .ql-picker-options {
+    background: #293655 !important;  /* Brighter background for picker dropdowns */
+    color: #eaf6fd !important;
+    border-color: #415175 !important;
+  }
+  #editor-container {
+    background: #293655 !important; /* Brighter input area in dark mode */
+    color: #eaf6fd !important;
+    border-color: #415175 !important;
+  }
+  .actions button { background: linear-gradient(90deg,#267af5 0%, #0eccdc 97%);}
+  .bottom-info-links a { color: #40aaff;}
+  .snapnote-footer { color:#5e76a1;}
+}
+@media (display-mode: standalone) {
+  .snapnote-header, .snapnote-footer { padding-top: 20px; padding-bottom: 14px;}
+}
+/* Animations */
+@keyframes popIn {
+  0% { opacity:0; transform: scale(.7);}
+  90% { opacity:1;}
+  100% { opacity:1; transform: scale(1);}
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform:translateY(-18px);}
+  to { opacity: 1; transform:translateY(0);}
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(13px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes slideFadeIn {
+  0% {opacity:0; transform:translateY(18px);}
+  100% {opacity:1; transform:translateY(0);}
+}
